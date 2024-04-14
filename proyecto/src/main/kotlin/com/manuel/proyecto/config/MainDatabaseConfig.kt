@@ -75,7 +75,7 @@ class MainDatabaseConfig {
         hibernateProperties["hibernate.show_sql"] = hibernateShowSql
         hibernateProperties["hibernate.hbm2ddl.auto"] = HIBERNATE_DML
         hibernateProperties["hibernate.current_session_context_class"] = hibernateCurrentSessionContextClass
-        hibernateProperties["hibernate.c3p0.max_size"] = 50
+        hibernateProperties["hibernate.c3p0.max_size"] = 2
         hibernateProperties["hibernate.globally_quoted_identifiers"] = true
         sessionFactoryBean.hibernateProperties = hibernateProperties
         return sessionFactoryBean
