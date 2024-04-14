@@ -23,3 +23,4 @@ class Player {
     @get:ManyToOne
     var team: Team? = null
 }
+
