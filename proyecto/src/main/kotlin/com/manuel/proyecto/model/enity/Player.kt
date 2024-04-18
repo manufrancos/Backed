@@ -22,5 +22,12 @@ class Player {
     @get:JoinColumn(name = "team", foreignKey = ForeignKey(name = "FK_PLAYER_TEAM"))
     @get:ManyToOne
     var team: Team? = null
+
+    constructor(idPlayer: Int){
+        this.idPlayer = idPlayer
+    }
+
+    constructor(){}
+
 }
 
