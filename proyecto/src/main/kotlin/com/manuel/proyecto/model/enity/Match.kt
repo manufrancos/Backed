@@ -30,5 +30,11 @@ class Match {
     @get:Column(name = "matchDate")
     @get:Basic
     var matchday: Date? = null
-    
+
+    constructor(idMatch: Int) {
+        this.idMatch = idMatch
+    }
+
+    constructor(){}
+
 }

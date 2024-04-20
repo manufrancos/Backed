@@ -58,7 +58,7 @@ class PlayerDao : MainFatherDao(){
             val criteriaQuery = criteriaBuilder.createQuery(Player::class.java)
             val root = criteriaQuery.from(Player::class.java)
             criteriaQuery.select(root)
-                .where(criteriaBuilder.equal(root.get<String>(""), id))
+                .where(criteriaBuilder.equal(root.get<Int>("idPlayer"), idPlayer))
             val query = s.createQuery(criteriaQuery)
             val player =  query.uniqueResult() as Player?
             return player != null
