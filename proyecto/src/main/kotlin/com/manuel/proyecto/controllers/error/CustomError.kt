@@ -36,11 +36,9 @@ import org.springframework.web.servlet.resource.NoResourceFoundException
 @Controller
 class CustomError : ResponseEntityExceptionHandler() {
 
-
     @ExceptionHandler(Exception::class)
     fun handleCustomExceptions(ex: Exception, request: WebRequest): ResponseEntity<Any>? {
         val e : ErrorData
-        val lang = request.getHeader("language")
         when (ex) {
             is BaseException -> {
                 val er: BaseException = ex

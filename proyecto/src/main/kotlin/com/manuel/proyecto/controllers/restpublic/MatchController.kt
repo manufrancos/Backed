@@ -1,5 +1,6 @@
 package com.manuel.proyecto.controllers.restpublic
 
+import com.manuel.proyecto.exception.BadRequest
 import com.manuel.proyecto.managers.MatchManager
 import com.manuel.proyecto.model.enity.Match
 import jakarta.annotation.PostConstruct
@@ -29,6 +30,7 @@ class MatchController {
      */
     @PostMapping("/match")
     fun createMatch(@RequestBody match: Match): Match {
+
         return manager.createMatch(match)
     }
 

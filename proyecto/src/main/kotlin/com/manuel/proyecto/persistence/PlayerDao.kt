@@ -45,12 +45,6 @@ class PlayerDao : MainFatherDao(){
         }
     }
 
-    fun verifyIdTeam(idTeam: Int): Boolean {
-        getNewSession().use { s ->
-            //TODO intentar hacer
-            return true
-        }
-    }
 
     fun verifyIdPlayer(idPlayer: Int): Boolean {
         getNewSession().use { s ->

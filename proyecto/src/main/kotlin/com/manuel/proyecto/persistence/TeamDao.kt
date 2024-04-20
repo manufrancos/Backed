@@ -1,5 +1,6 @@
 package com.manuel.proyecto.persistence
 
+import com.manuel.proyecto.model.enity.Player
 import com.manuel.proyecto.model.enity.Team
 import jakarta.transaction.Transactional
 import org.springframework.stereotype.Repository
@@ -43,5 +44,18 @@ class TeamDao : MainFatherDao() {
             return true
         }
     }
+
+    fun verifyIdTeam(idTeam: Int): Boolean {
+        getNewSession().use { s ->
+            val criteriaBuilder = s.criteriaBuilder
+            val criteriaQuery = criteriaBuilder.createQuery(Team::class.java)
+            val root = criteriaQuery.from(Team::class.java)
+            criteriaQuery.select(root).where(criteriaBuilder.equal(root.get<Int>("idTeam"), idTeam))
+            val query = s.createQuery(criteriaQuery)
+            val team =  query.uniqueResult() as Team?
+            return team != null
+        }
+    }
+
 
 }

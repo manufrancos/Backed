@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement
 
 @Configuration
 @EnableTransactionManagement
-@Suppress("UNCHECKED_CAST", "DEPRECATION")
 class MainFatherDao {
 
     @Autowired

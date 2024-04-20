@@ -1,5 +1,6 @@
 package com.manuel.proyecto.managers
 
+import com.manuel.proyecto.exception.BadRequest
 import com.manuel.proyecto.model.enity.Team
 import com.manuel.proyecto.persistence.TeamDao
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,16 +19,24 @@ class TeamManager {
     }
 
     fun createTeam(team: Team): Team {
-        // TODO: verificar que el equipo tiene los datos correctos
+        team.idTeam = null
+        if (team.name == null || team.city == null){
+            throw  BadRequest("Equipo invalido")
+        }
         return dao.createTeam(team)
     }
 
     fun updateTeam(team: Team): Team {
-        // TODO: verificar que el equipo tiene los datos correctos
+        if (team.name == null || team.city == null){
+            throw  BadRequest("Equipo invalido")
+        }
         return dao.updateTeam(team)
     }
 
     fun deleteTeam(team: Team): Boolean {
+        if(!dao.verifyIdTeam(team.idTeam!!)){
+            throw  BadRequest("Equipo invalido")
+        }
         return dao.deleteTeam(team)
     }
 

@@ -3,6 +3,7 @@ package com.manuel.proyecto.managers
 import com.manuel.proyecto.exception.BadRequest
 import com.manuel.proyecto.model.enity.Player
 import com.manuel.proyecto.persistence.PlayerDao
+import com.manuel.proyecto.persistence.TeamDao
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
@@ -14,6 +15,9 @@ class PlayerManager {
     @Autowired
     private lateinit var dao: PlayerDao
 
+    @Autowired
+    private lateinit var teamDao: TeamDao
+
     fun getAllPlayers(): ArrayList<Player> {
         return dao.getAllPlayers()
     }
@@ -24,8 +28,7 @@ class PlayerManager {
             throw BadRequest("Jugador invalido")
         }
 
-        //TODO verificar id team
-        if(!dao.verifyIdTeam(player.team!!.idTeam!!)){
+        if(!teamDao.verifyIdTeam(player.team!!.idTeam!!)){
             throw BadRequest("Equipo invalido")
         }
 
@@ -37,8 +40,7 @@ class PlayerManager {
             throw BadRequest("Jugador invalido")
         }
 
-        //TODO verificar id team
-        if(!dao.verifyIdTeam(player.team!!.idTeam!!)){
+        if(!teamDao.verifyIdTeam(player.team!!.idTeam!!)){
             throw BadRequest("Equipo invalido")
         }
         return dao.updatePlayer(player)
