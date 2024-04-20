@@ -19,4 +19,9 @@ class Team {
     @get:Basic
     var city: String? = null
 
+    constructor(idTeam: Int){
+        this.idTeam = idTeam
+    }
+
+    constructor(){}
 }

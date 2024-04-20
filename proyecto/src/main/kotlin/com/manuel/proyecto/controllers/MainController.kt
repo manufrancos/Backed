@@ -8,7 +8,7 @@ class MainController {
 
     @GetMapping("")
     fun main(): String {
-        return "hola mundo soy Manuel"
+        return "hola mundoooo soy Manuel"
     }
 
 }
