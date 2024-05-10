@@ -3,6 +3,7 @@ package com.manuel.proyecto.controllers.restpublic
 import com.manuel.proyecto.exception.BadRequest
 import com.manuel.proyecto.managers.MatchManager
 import com.manuel.proyecto.model.enity.Match
+import com.manuel.proyecto.model.enity.Team
 import jakarta.annotation.PostConstruct
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -21,8 +22,8 @@ class MatchController {
      * Metodo GET que retorna todos los partido de la BB.DD
      */
     @GetMapping("/matches")
-    fun getMatches(): List<Match> {
-        return manager.getAllMatches()
+    fun getMatches(@RequestParam idTeam: Int): List<Match> {
+        return manager.getMatchOfTeam(idTeam)
     }
 
     /***

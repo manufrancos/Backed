@@ -18,8 +18,9 @@ class MatchManager {
     @Autowired
     private lateinit var teamDao: TeamDao
 
-    fun getAllMatches(): List<Match> {
-        return dao.getAllMatches()
+    fun getMatchOfTeam(idTeam: Int): List<Match> {
+        val data = dao.getAllMatches()
+        return data.filter { it.awayTeam!!.idTeam == idTeam || it.homeTeam!!.idTeam == idTeam }
     }
 
     fun createMatch(match: Match): Match {
