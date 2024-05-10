@@ -15,7 +15,9 @@ class TeamManager {
     private lateinit var dao: TeamDao
 
     fun getAllTeams(): ArrayList<Team> {
-        return dao.getAllTeams()
+        val data = dao.getAllTeams()
+        data.sortBy { it.idTeam }
+        return data
     }
 
     fun createTeam(team: Team): Team {

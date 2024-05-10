@@ -15,11 +15,18 @@ class PlayerManager {
     @Autowired
     private lateinit var dao: PlayerDao
 
+<<<<<<< Updated upstream
     @Autowired
     private lateinit var teamDao: TeamDao
 
     fun getAllPlayers(): ArrayList<Player> {
         return dao.getAllPlayers()
+=======
+    fun getAllPlayers(idTeam: Int): ArrayList<Player> {
+        val data = dao.getAllPlayers()
+        data.removeIf { it.team!!.idTeam != idTeam }
+        return data
+>>>>>>> Stashed changes
     }
 
     fun createPlayer(player: Player): Player {

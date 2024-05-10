@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository
 @Suppress("UNCHECKED_CAST", "DEPRECATION")
 @Repository
 @Transactional
+
 class TeamDao : MainFatherDao() {
 
     fun getAllTeams(): ArrayList<Team> {

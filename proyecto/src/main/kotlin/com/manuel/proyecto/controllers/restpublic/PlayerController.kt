@@ -20,8 +20,8 @@ class PlayerController {
      * Metodo GET que retorna todos los jugadoes de la BB.DD
      */
     @GetMapping("/players")
-    fun getPlayers(): ArrayList<Player> {
-        return manager.getAllPlayers()
+    fun getPlayers(@RequestParam idTeam: Int): ArrayList<Player> {
+        return manager.getAllPlayers(idTeam)
     }
 
     /***
